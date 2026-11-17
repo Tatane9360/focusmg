@@ -1,0 +1,44 @@
+@layer components {
+  .serif { font-family: var(--font-serif); font-weight: 400; }
+  .amp { color: var(--color-stone); font-family: var(--font-serif); }
+
+  /* Petit label en capitales sur deux lignes */
+  .eyebrow {
+    font-size: var(--text-caption); line-height: 1.2; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--color-stone);
+  }
+  .eyebrow span { color: var(--color-ink); text-transform: none; letter-spacing: 0; font-size: var(--text-body); line-height: 1.4; }
+  .dark .eyebrow span { color: var(--color-paper); }
+
+  .caps { font-size: var(--text-caption); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* Lien texte : seul « bouton » du système */
+  /* Zone tactile ≥ 44 px : le padding agrandit la cible, la marge négative garde l'espacement visuel */
+  .link {
+    display: inline-flex; align-items: center; gap: 10px; position: relative; padding: 11px 0; margin-block: -7px;
+  }
+  .link::after {
+    content: ''; position: absolute; inset: auto 0 7px; height: 1px;
+    background: currentColor; transform-origin: right; transition: transform 0.6s var(--ease-expo);
+  }
+  .link::before { content: '→'; order: 2; transition: transform 0.6s var(--ease-expo); }
+  .link:hover::after { transform: scaleX(0); }
+  .link:hover::before { transform: translateX(6px); }
+  .link.is-done::before { content: '✓'; }
+
+  /* Ligne masquée pour les révélations de titre */
+  .line { display: block; overflow: hidden; padding-bottom: 0.2em; margin-bottom: -0.2em; }
+  .line > span { display: inline-block; }
+
+  /* Texte long (mentions, CGV) */
+  .prose-legal { max-width: 46rem; color: var(--color-graphite); }
+  .prose-legal :where(h2) { font-family: var(--font-serif); font-size: var(--text-sub); letter-spacing: -0.04em; color: var(--color-ink); margin: 64px 0 16px; }
+  .prose-legal :where(h3) { color: var(--color-ink); margin: 32px 0 8px; }
+  .prose-legal :where(h4) { color: var(--color-ink); margin: 20px 0 4px; font-size: var(--text-body); }
+  .prose-legal :where(p, ul) { margin-bottom: 12px; }
+  .prose-legal :where(ul) { padding-left: 1.2em; list-style: disc; }
+  .prose-legal :where(a) { color: var(--color-ink); text-decoration: underline; text-underline-offset: 3px; }
+  .prose-legal [id] { scroll-margin-top: 96px; }
+  .prose-legal nav a { display: inline-block; padding-block: 10px; }
+  .prose-legal nav ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; }
+}

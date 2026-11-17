@@ -1,0 +1,25 @@
+/* Sections propres à l'accueil (le reste est en utilitaires Tailwind dans le HTML) */
+@layer components {
+  .hero__scroll::after { content: ' ↓'; }
+
+  /* Liste des services : les autres lignes s'effacent au survol */
+  @media (hover: hover) {
+    .services__list:hover .service a { color: var(--color-stone); }
+    .services__list .service a:hover { color: var(--color-ink); transform: translateX(20px); }
+  }
+  .service a { transition: transform 0.6s var(--ease-expo), color 0.4s; }
+
+  /* Galerie horizontale */
+  .gallery__track { display: flex; gap: 20px; padding-inline: var(--spacing-gutter); width: max-content; align-items: flex-start; }
+  .gallery__track figure { flex: none; height: clamp(260px, 52vh, 520px); }
+  .gallery__track img { height: 100%; width: auto; object-fit: cover; border-radius: var(--radius-sm); }
+  @media (max-width: 639px) {
+    .gallery__track { overflow-x: auto; width: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+    .gallery__track figure { scroll-snap-align: start; height: 320px; }
+  }
+
+  /* Bandeau « Demander un devis » */
+  .marquee__row { display: inline-flex; gap: 0.3em; padding-right: 0.3em; will-change: transform; }
+  .marquee__row > span { transition: color 0.5s; }
+  .marquee:hover .marquee__row > span { color: var(--color-stone); }
+}

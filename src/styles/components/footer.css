@@ -1,0 +1,6 @@
+@layer components {
+  .footer a, .footer__muted { color: var(--color-stone); transition: color 0.3s; }
+  .footer a:hover { color: var(--color-paper); }
+  .footer__cols a, .footer__muted { display: block; padding-block: 10px; }
+  .footer__bottom, .footer__bottom a { color: var(--color-graphite); }
+}

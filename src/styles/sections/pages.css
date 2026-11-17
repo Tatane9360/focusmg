@@ -1,0 +1,11 @@
+/* Pages intérieures */
+@layer components {
+  /* Frise du parcours : la ligne verticale se trace au scroll */
+  .timeline { position: relative; }
+  .timeline__line { position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--color-hair); }
+  .timeline__line span { display: block; width: 100%; height: 100%; background: var(--color-ink); transform-origin: top; }
+
+  /* Navigation entre séries / œuvres */
+  .pager a { transition: color 0.4s; }
+  .pager a:hover { color: var(--color-stone); }
+}

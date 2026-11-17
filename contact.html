@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <title>Contact et devis · FocusMG</title>
+  <meta name="description" content="Demandez un devis photo ou vidéo à FocusMG : réponse sous 48 h. Contact par e-mail, Signal ou Instagram.">
+  <link rel="canonical" href="https://www.focusmg.fr/contact.html">
+  <meta property="og:title" content="Contact et devis · FocusMG">
+  <meta property="og:description" content="Demandez un devis photo ou vidéo à FocusMG : réponse sous 48 h. Contact par e-mail, Signal ou Instagram.">
+  <meta property="og:url" content="https://www.focusmg.fr/contact.html">
+  <!-- @include head.html -->
+</head>
+<body>
+<!-- @include header.html -->
+
+<main id="contenu">
+  <section class="wrap flex min-h-[70svh] flex-col justify-end gap-10 pt-[140px] pb-16">
+    <p class="eyebrow" data-hero-fade>Contact<br><span>Réponse sous 48&nbsp;h avec un devis ou des questions</span></p>
+    <h1 class="serif text-display" data-hero>
+      <span class="line"><span>Parlons de</span></span>
+      <span class="line lg:pl-[0.8em]"><span>votre projet</span></span>
+    </h1>
+  </section>
+
+  <section class="wrap grid gap-x-[clamp(20px,6vw,120px)] gap-y-20 border-t border-hair py-section lg:grid-cols-[2fr_1fr]">
+    <form id="contact-form" class="grid gap-x-8 gap-y-10 sm:grid-cols-2" aria-labelledby="form-titre" data-rise>
+      <h2 class="serif text-heading sm:col-span-2" id="form-titre">Demande de devis</h2>
+      <div class="field"><label for="nom">Nom</label><input id="nom" name="nom" autocomplete="name" required></div>
+      <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" spellcheck="false" autocomplete="email" required></div>
+      <div class="field"><label for="telephone">Téléphone <span class="optional">(facultatif)</span></label><input id="telephone" name="telephone" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="societe">Société ou club <span class="optional">(facultatif)</span></label><input id="societe" name="societe" autocomplete="organization"></div>
+      <div class="field sm:col-span-2">
+        <label for="type">Type de projet</label>
+        <select id="type" name="type" required>
+          <option value="">Choisir…</option>
+          <option>Vidéo</option>
+          <option>Reportage photo</option>
+          <option>Photo et vidéo</option>
+          <option>Tirage d’art</option>
+          <option>Autre demande</option>
+        </select>
+      </div>
+      <div class="field"><label for="date">Date souhaitée <span class="optional">(facultatif)</span></label><input id="date" name="date" type="date"></div>
+      <div class="field"><label for="lieu">Lieu <span class="optional">(facultatif)</span></label><input id="lieu" name="lieu"></div>
+      <div class="field sm:col-span-2"><label for="message">Votre projet</label><textarea id="message" name="message" required placeholder="Le besoin, le format, l’ambiance…"></textarea></div>
+      <div class="flex flex-col items-start gap-4 sm:col-span-2">
+        <button class="link cursor-pointer text-sub" type="submit">Envoyer la demande</button>
+        <p id="form-status" class="text-graphite" role="status"></p>
+        <p class="caps text-stone">Rien n’est enregistré : le formulaire ouvre votre messagerie. <a class="underline" href="mentions-legales.html#donnees">Données personnelles</a></p>
+      </div>
+    </form>
+
+    <aside class="flex flex-col gap-10" aria-label="Contacts directs">
+      <div data-rise><p class="eyebrow mb-3">E-mail</p><a class="serif -my-2 inline-block py-2 text-sub hover:text-stone" href="mailto:contact@focusmg.fr">contact@focusmg.fr</a></div>
+      <div data-rise><p class="eyebrow mb-3">Signal</p><p class="serif text-sub">@FocusMG.13</p></div>
+      <div data-rise>
+        <p class="eyebrow mb-3">Instagram</p>
+        <a class="serif -my-1 block py-2 text-sub hover:text-stone" href="https://www.instagram.com/focusmg_media/" target="_blank" rel="noopener">@focusmg_media</a>
+        <a class="serif -my-1 block py-2 text-sub hover:text-stone" href="https://www.instagram.com/maelgr._/" target="_blank" rel="noopener">@maelgr._</a>
+      </div>
+      <div data-rise><p class="eyebrow mb-3">Atelier</p><p class="text-graphite">Bourg-en-Bresse, Ain.<br>Déplacements dans toute la région Auvergne-Rhône-Alpes.</p></div>
+    </aside>
+  </section>
+</main>
+
+<!-- @include footer.html -->
+</body>
+</html>

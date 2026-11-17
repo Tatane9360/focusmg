@@ -1,0 +1,58 @@
+/* Navigation, menu mobile, loader et rideau de transition */
+@layer components {
+  .nav {
+    position: fixed; inset: 0 0 auto; z-index: 100;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    padding: 20px var(--spacing-gutter);
+    color: var(--color-paper); mix-blend-mode: difference;
+  }
+  .nav a { transition: opacity 0.3s; }
+  .nav__links:hover a, .nav:hover .nav__cta { opacity: 0.55; }
+  .nav__links a:hover, .nav .nav__cta:hover, .nav__links a[aria-current] { opacity: 1; }
+  .nav__links a[aria-current] { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+
+  .menu {
+    position: fixed; inset: 0; z-index: 90; background: var(--color-ink); color: var(--color-paper);
+    padding: 128px var(--spacing-gutter) calc(var(--spacing-gutter) + 8px);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .menu { overscroll-behavior: contain; overflow-y: auto; }
+  .menu[hidden] { display: none; }
+
+  /* Hamburger : 3 traits qui deviennent une croix (cible tactile 44 px) */
+  .nav__toggle { display: grid; place-items: center; width: 44px; height: 44px; margin: -10px -10px -10px 0; }
+  .burger { position: relative; width: 26px; height: 14px; }
+  .burger i {
+    position: absolute; inset-inline: 0; height: 1.5px; background: currentColor;
+    transition: transform 0.6s var(--ease-expo), opacity 0.3s;
+  }
+  .burger i:nth-child(1) { top: 0; }
+  .burger i:nth-child(2) { top: 50%; margin-top: -0.75px; }
+  .burger i:nth-child(3) { bottom: 0; }
+  .nav__toggle[aria-expanded='true'] .burger i:nth-child(1) { transform: translateY(6.25px) rotate(45deg); }
+  .nav__toggle[aria-expanded='true'] .burger i:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav__toggle[aria-expanded='true'] .burger i:nth-child(3) { transform: translateY(-6.25px) rotate(-45deg); }
+
+  .menu nav { display: flex; flex-direction: column; gap: clamp(10px, 2.6svh, 24px); }
+  .menu nav a { font-family: var(--font-serif); font-size: clamp(36px, min(12vw, 7.5svh), 75px); line-height: 1; letter-spacing: -0.04em; }
+  .menu a[aria-current] { color: var(--color-stone); }
+  /* Écran court (paysage) : deux colonnes pour que tout tienne sans défiler */
+  @media (max-height: 520px) {
+    .menu { padding-top: 84px; }
+    .menu nav { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+    .menu nav a { font-size: 36px; }
+  }
+
+  /* Le loader et le rideau couvrent la page tant que le JS ne les a pas levés ;
+     l'animation est un filet de sécurité si le JS ne tourne pas. */
+  .loader, .curtain { display: none; }
+  .js .loader, .js .curtain {
+    position: fixed; inset: 0; z-index: 150; background: var(--color-ink); color: var(--color-paper);
+    display: flex; animation: failsafe 0s 6s forwards;
+  }
+  .js .loader { align-items: flex-end; padding: var(--spacing-gutter); }
+  .js .curtain { pointer-events: none; }
+  .loader__count::after { content: ' %'; }
+}
+
+@keyframes failsafe { to { visibility: hidden; } }

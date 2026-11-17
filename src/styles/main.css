@@ -1,0 +1,13 @@
+/* Point d'entrée CSS : Tailwind + composants du site */
+@import "tailwindcss";
+@import "./theme.css";
+@import "./base.css";
+
+@import "./components/typography.css";
+@import "./components/chrome.css";
+@import "./components/footer.css";
+@import "./components/media.css";
+@import "./components/forms.css";
+
+@import "./sections/home.css";
+@import "./sections/pages.css";

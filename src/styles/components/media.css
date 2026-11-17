@@ -1,0 +1,33 @@
+/* Images, cartes, galerie, visionneuse, vidéos */
+@layer components {
+  .card__media { overflow: hidden; background: var(--color-fog); }
+  .card__media img { width: 100%; height: 115%; object-fit: cover; transition: transform 1.2s var(--ease-expo); }
+  .card:hover .card__media img { transform: scale(1.04); }
+
+  /* Image qui suit le curseur (liste des services) */
+  .cursor-img {
+    position: fixed; left: 0; top: 0; width: 280px; aspect-ratio: 4 / 5; z-index: 5;
+    pointer-events: none; overflow: hidden; border-radius: var(--radius-sm); opacity: 0;
+  }
+
+  /* Visionneuse photo (balise <dialog>) */
+  .lightbox {
+    max-width: none; max-height: none; width: 100%; height: 100dvh; overscroll-behavior: contain; margin: 0; border: 0; padding: var(--spacing-gutter);
+    background: var(--color-ink); color: var(--color-paper);
+  }
+  .lightbox[open] { display: grid; grid-template-rows: auto 1fr auto; gap: 16px; }
+  .lightbox::backdrop { background: var(--color-ink); }
+  .lightbox img { width: 100%; height: 100%; object-fit: contain; min-height: 0; }
+  [data-lightbox] img { cursor: zoom-in; }
+
+  /* Vidéo YouTube chargée au clic */
+  .video { position: relative; display: block; width: 100%; overflow: hidden; background: var(--color-ink); }
+  .video img, .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+  .video img { transition: transform 1.2s var(--ease-expo), opacity 0.6s; opacity: 0.85; }
+  .video:hover img { transform: scale(1.03); opacity: 1; }
+  .video__play {
+    position: absolute; left: 20px; bottom: 20px; z-index: 1; color: var(--color-paper);
+    display: inline-flex; gap: 10px; align-items: center;
+  }
+  .video__play::before { content: '▶'; font-size: 10px; }
+}
