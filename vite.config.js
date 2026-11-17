@@ -25,6 +25,7 @@ const htmlInclude = {
 };
 
 export default defineConfig({
+  base: './',
   plugins: [tailwindcss(), htmlInclude],
   build: { rollupOptions: { input: pages } },
 });
